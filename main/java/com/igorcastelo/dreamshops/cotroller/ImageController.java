@@ -39,5 +39,6 @@ public class ImageController {
             return ResponseEntity.ok().contentType(MediaType.parseMediaType(image.getFileType()))
                     .header(HttpHeaders.CONTENT_DISPOSITION, "attchment; file name=\""+image.getFileName()+"\"")
                     .body(resource);
+
         }
 }
