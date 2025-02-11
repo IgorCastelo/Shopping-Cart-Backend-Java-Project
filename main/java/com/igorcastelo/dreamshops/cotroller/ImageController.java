@@ -32,13 +32,12 @@ public class ImageController {
             return  ResponseEntity.status(INTERNAL_SERVER_ERROR).body(new ApiResponse("Upload Filed",e.getMessage()));
         }
         }
-        @GetMapping("/image/download/{imageIdgit submodule update --init --recursive\n}")
+        @GetMapping("/image/download/{imageId}")
         public ResponseEntity<Resource> downloadImage(@PathVariable Long imageId) throws SQLException {
             Image image = imageService.getImageById(imageId);
             ByteArrayResource resource = new ByteArrayResource(image.getImage().getBytes(1, (int)image.getImage().length()));
             return ResponseEntity.ok().contentType(MediaType.parseMediaType(image.getFileType()))
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attchment; file name=\""+image.getFileName()+"\"")
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; file name=\""+image.getFileName()+"\"")
                     .body(resource);
-
         }
 }
