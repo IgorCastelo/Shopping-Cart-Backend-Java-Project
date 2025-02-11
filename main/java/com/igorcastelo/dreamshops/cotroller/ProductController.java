@@ -1,2 +1,4 @@
-package com.igorcastelo.dreamshops.cotroller;public class ProductController {
+package com.igorcastelo.dreamshops.cotroller;
+
+public class ProductController {
 }
